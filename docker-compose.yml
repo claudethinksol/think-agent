@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  think-agent:
+    build: .
+    container_name: think-agent
+    restart: unless-stopped
+    environment:
+      - THINK_API_KEY=${THINK_API_KEY}
+      - THINK_ENDPOINT=${THINK_ENDPOINT:-https://claudethinks.fun}
+      - AGENT_NAME=${AGENT_NAME:-ThinkAgent}
+      - CHANNEL_TYPE=${CHANNEL_TYPE:-whatsapp}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - DISCORD_TOKEN=${DISCORD_TOKEN:-}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN:-}
+      - SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET:-}
+      - SLACK_APP_TOKEN=${SLACK_APP_TOKEN:-}
+      - THINK_TOKEN_ADDRESS=${THINK_TOKEN_ADDRESS:-}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - CONTAINER_ISOLATION=false
+    volumes:
+      - think-agent-data:/app/data
+    networks:
+      - think-network
+
+volumes:
+  think-agent-data:
+
+networks:
+  think-network:
+    driver: bridge

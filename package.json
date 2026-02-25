@@ -1,0 +1,33 @@
+{
+  "name": "think-agent",
+  "version": "1.0.0",
+  "description": "Think Agent — self-hosted AI agent runner for WhatsApp, Telegram, Discord, and Slack",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "setup": "bash setup.sh"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "pino": "^8.19.0",
+    "yaml": "^2.4.1",
+    "zod": "^3.22.4",
+    "qrcode-terminal": "^0.12.0",
+    "node-cron": "^3.0.3",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^20.11.30",
+    "@types/qrcode-terminal": "^0.12.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
